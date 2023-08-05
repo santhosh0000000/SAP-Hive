@@ -38,7 +38,7 @@ public class spark {
         // df.write().option("header", "true").csv(hdfsOutputPath);
 
         // Write the dataframe to Hive table
-        df.write().mode(SaveMode.Overwrite).format("hive").saveAsTable("nesto.nesto_final_0122"); // Use SaveMode.Overwrite if you want to overwrite existing data
+        df.write().mode(SaveMode.Overwrite).format("hive").saveAsTable("EXP.DEM_final_0122"); // Use SaveMode.Overwrite if you want to overwrite existing data
 
         spark.stop();
     }
