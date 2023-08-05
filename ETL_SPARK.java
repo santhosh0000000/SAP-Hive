@@ -32,10 +32,7 @@ public class spark {
                 .option("dbtable", query)
                 .load();
 
-        // Specify the Hadoop Distributed File System (HDFS) output path
-        // String hdfsOutputPath = "hdfs://192.168.247.6:8020/test1/NES-TES1-final";
 
-        // df.write().option("header", "true").csv(hdfsOutputPath);
 
         // Write the dataframe to Hive table
         df.write().mode(SaveMode.Overwrite).format("hive").saveAsTable("EXP.DEM_final_0122"); // Use SaveMode.Overwrite if you want to overwrite existing data
