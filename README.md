@@ -14,15 +14,15 @@ A SQL query is created to select all records from the specified schema and table
 4. Creating the Spark Session
 A SparkSession is created using the SparkSession.builder() method. Here's what's happening in the configuration:
 
-appName("SparkConnector"): Sets the application name.
-master("local[*]"): Specifies that the code should run locally, using all available cores.
-enableHiveSupport(): Enables Hive support, allowing interaction with Hive tables.
-config("spark.sql.warehouse.dir", "hdfs://..."): Sets the Hive warehouse directory in HDFS.
+**appName("SparkConnector")**: Sets the application name.
+**master("local[*]")**: Specifies that the code should run locally, using all available cores.
+**enableHiveSupport()**: Enables Hive support, allowing interaction with Hive tables.
+**config("spark.sql.warehouse.dir", "hdfs://...")**: Sets the Hive warehouse directory in HDFS.
 5. Loading Data from the SAP Database
-Data is loaded from the SAP database into a Spark DataFrame (Dataset<Row>) using the JDBC connection parameters and the SQL query created earlier. The spark.read() method is used to configure and load the data.
+Data is loaded from the SAP database into a Spark DataFrame (**Dataset<Row>**) using the JDBC connection parameters and the SQL query created earlier. The **spark.read()** method is used to configure and load the data.
 
 6. Writing Data to a Hive Table
-The DataFrame is then written to a Hive table with the name EXP.DEM_final_0122. The SaveMode.Overwrite option is used, meaning that if the table already exists, its contents will be overwritten with the new data.
+The DataFrame is then written to a Hive table with the name **EXP.DEM_final_0122**. The **SaveMode.Overwrite** option is used, meaning that if the table already exists, its contents will be overwritten with the new data.
 
 7. Stopping the Spark Session
 Finally, the Spark session is stopped using spark.stop(), releasing resources associated with the session.
